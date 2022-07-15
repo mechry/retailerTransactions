@@ -1,5 +1,5 @@
 # retailerTransactions 
-SPRING BOOT APPLICATION donne with Eclips, Maven and Spring Tool 4
+SPRING BOOT APPLICATION donne with Eclips, Maven and Spring Tool 4, H2 DB
 
 To test this you need rest Api client like : HTTPie, Postman REST Client or ARC
 
@@ -17,7 +17,41 @@ http://localhost:8080/addRewardType to add one Reward point Type (100, 2) and (5
 
 http://localhost:8080/addManyRewardTypes   to add many Reward point Type
 
-ex : 
+http://localhost:8080/addCustomerTransaction Add one record purchase history
+
+ex :
+ {
+    "transDate": "2021-11-30",
+    "customerId": "CustomerA",
+    "amount": 500
+  }
+
+http://localhost:8080/addManyCustomerTransactions Add many records purchase history
+
+
+# 4 GET :
+
+http://localhost:8080/rewardType/100 To get one Reward point Type.
+
+http://localhost:8080/addManyRewardTypes To get all Reward point Type.
+
+# calculate the reward points earned for each customer per month 
+
+http://localhost:8080/rewardPEPerCustomerForOneMonth .
+
+# calculate the total per customer
+
+http://localhost:8080/totalRPEPerCustomerForLast3Months 
+
+# Senario For testing 
+
+Afer runing the aplication with eclipse or any other IDE, Then Open your rest Api client 
+
+
+# First :  run http://localhost:8080/addManyRewardTypes 
+
+for adding all avlaibel :
+
 [
 {
     "purchaseLimit":50,
@@ -30,18 +64,7 @@ ex :
 }
 ]
 
-http://localhost:8080/addCustomerTransaction Add one record purchase history
-
-ex :
- {
-    "transDate": "2021-11-30",
-    "customerId": "CustomerA",
-    "amount": 500
-  }
-
-http://localhost:8080/addManyCustomerTransactions Add many records purchase history
-
-exmple used for testing :
+# And Then run http://localhost:8080/addManyCustomerTransactions
 
 [
   {
@@ -116,17 +139,42 @@ exmple used for testing :
   }
 ]
 
+Optional : you can check if every recor in the DB with  this link http://localhost:8080/h2Db-ui
 
-# 4 GET :
+# Result 
 
-http://localhost:8080/rewardType/100 To get one Reward point Type.
+For http://localhost:8080/rewardPEPerCustomerForOneMonth 
 
-http://localhost:8080/addManyRewardTypes To get all Reward point Type.
+The output :
 
-# calculate the reward points earned for each customer per month 
+{
+"CustomerA": {
+"2022-04": 40,
+"2022-05": 4500,
+"2022-06": 16250
+},
 
-http://localhost:8080/rewardPEPerCustomerForOneMonth .
+"CustomerB": {
+"2022-04": 1450,
+"2022-05": 30,
+"2022-06": 300
+},
 
-# calculate the total per customer
+"CustomerC": {
+"2022-04": 10,
+"2022-05": 520,
+"2022-06": 70,
+"2022-07": 0
+}
 
-http://localhost:8080/totalRPEPerCustomerForLast3Months 
+}
+
+For http://localhost:8080/totalRPEPerCustomerForLast3Months 
+
+The output:
+
+{
+"CustomerA": 20790,
+"CustomerB": 1780,
+"CustomerC": 600
+}
