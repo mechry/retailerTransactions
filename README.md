@@ -141,8 +141,9 @@ for adding all avlaibel :
 
 Optional : you can check if every recor in the DB with  this link http://localhost:8080/h2Db-ui
 
-# Result 
+# To get suspected result, go to the two endpoits
 
+#1
 For http://localhost:8080/rewardPEPerCustomerForOneMonth 
 
 The output :
@@ -169,6 +170,7 @@ The output :
 
 }
 
+#2
 For http://localhost:8080/totalRPEPerCustomerForLast3Months 
 
 The output:
