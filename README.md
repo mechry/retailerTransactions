@@ -50,7 +50,7 @@ Afer runing the aplication with eclipse or any other IDE, Then Open your rest Ap
 
 # First :  run http://localhost:8080/addManyRewardTypes 
 
-for adding all avlaibel :
+for adding all avlaibel Reward Types with:
 
 [
 {
@@ -65,6 +65,8 @@ for adding all avlaibel :
 ]
 
 # And Then run http://localhost:8080/addManyCustomerTransactions
+
+with:
 
 [
   {
