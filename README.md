@@ -8,5 +8,15 @@ In this Application we have
 4 POST :
 
 http://localhost:8080/addRewardType to add one Reward point Type (100, 2) and (50, 1)
+
 http://localhost:8080/addManyRewardTypes   to add many
-[addManyRewardTypes](http://localhost:8080/rewardType/0
+
+http://localhost:8080/rewardType/100 To get one Reward point Type.
+
+here the result will be :
+
+{
+"purchaseLimit": 100,
+"rewardPoint": 2
+}
+
